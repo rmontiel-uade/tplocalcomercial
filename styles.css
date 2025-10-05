@@ -1,0 +1,1282 @@
+#contenedor {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* MENÚ  */
+
+/* Quita márgenes y paddings de lista y enlaces */
+ul, li, a {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #fff; /* FONDO NEGRO ELEGANTE */
+  padding: 1em;
+  border-bottom: 1px solid #333; /* Línea sutil abajo */
+}
+
+/* Contenedor NAV principal */
+.navbar {
+  display: flex; /* Activa flexbox */
+  justify-content: space-between; /* Logo a la izq, menú a la der */
+  align-items: center; /* Centra vertical */
+}
+
+/* LOGO - visible a la izquierda */
+.logo {
+  color: #000; 
+  font-size: 1.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* LISTA DE LINKS - oculto por default en mobile */
+.nav-links {
+  list-style: none;
+  display: none; /* Oculto hasta que se active */
+  flex-direction: column;
+  background-color: #fff; /* Igual fondo que header */
+  width: 100%;
+  text-align: center;
+  margin-top: 1em;
+}
+
+/* Cada item del menú ocupa toda la fila */
+.nav-links li {
+  width: 100%;
+}
+
+/* Enlaces dentro de los li */
+.nav-links a {
+  color: #000; /* Texto blanco */
+  text-decoration: none;
+  padding: 1em 0;
+  display: block;
+  position: relative; /* Para animación underline */
+  transition: color 0.3s ease;
+  list-style: none
+
+}
+
+/* Subrayado animado */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: 0.4em;
+  background-color: #000; /* Subrayado blanco */
+  transition: width 0.3s ease;
+}
+
+/* Cuando pasas el mouse: subrayado se extiende */
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* DROPDOWN */
+.dropdown-content {
+  display: none;
+  background-color: #111; /* Un negro más claro para diferenciar */
+  text-align: left;
+}
+
+.dropdown-content a {
+  color: #000;
+  background-color: #fff;
+  text-align: center;
+  display: block;
+  list-style: none
+}
+
+.dropdown-content a:hover {
+  background-color: #222; /* Sutil al pasar el mouse */
+}
+
+/* Activa el dropdown al pasar mouse (desktop) */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/*  HAMBURGER  */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  height: 0.2em;
+  background-color: #000; /* Barras blancas */
+  margin: 0.2em 0;
+  width: 1.5em;
+  transition: background 0.3s ease;
+}
+
+/* CUANDO SE ACTIVA  */
+.nav-active {
+  display: flex;
+}
+
+/* Oculta logo si querés cuando abre el menú (opcional) */
+.logo-hidden {
+  display: none;
+}
+
+/* Para dropdowns en mobile */
+.show-dropdown {
+  display: block;
+}
+
+
+/* HERO: contenedor principal */
+.hero {
+  display: flex;                /* Activa flexbox */
+  justify-content: center;      /* Centra horizontal */
+  align-items: center;          /* Centra vertical */
+  min-height: 38em;            /* Ocupa toda la altura de la pantalla */
+  background-color: #f1e4db;    /* Color nude/crema (beige claro) */
+  text-align: center;           /* Centra texto */
+  padding: 2em;                 /* Espaciado interno */
+}
+
+/* Contenido del hero */
+.hero-content h1 {
+  font-size: 2.5em;             /* Título grande */
+  margin-bottom: 0.5em;         /* Espacio con el subtítulo */
+  color: #000;                  /* Negro para contraste */
+  animation: fadeSlide 1s ease forwards; /* Animación entrada */
+}
+
+/* Subtítulo */
+.hero-content p {
+  font-size: 1.2em;
+  margin-bottom: 1.5em;
+  color: #333;                  /* Gris oscuro */
+  animation: fadeSlide 1.5s ease forwards;
+}
+
+/* Botón principal */
+.btn-hero {
+  background-color: #000;       /* Botón negro */
+  color: #fff;                  /* Texto blanco */
+  padding: 0.8em 2em;
+  border-radius: 50px;          /* Botón redondeado */
+  text-decoration: none;        /* Sin subrayado */
+  transition: background 0.3s ease, color 0.3s ease; /* Efecto hover */
+  animation: fadeSlide 2s ease forwards;
+}
+
+/* Hover del botón */
+.btn-hero:hover {
+  background-color: #f1e4db;    /* Mismo color nude de fondo */
+  color: #000;                  /* Texto negro */
+  border: 1px solid #000;       /* borde negro */
+}
+
+/* Animación de entrada: suave desplazamiento + fade in */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*SOBRE MÍ SECTION */
+.sobre-mi {
+  padding: 4em 2em; /* espacio interior superior e inferior */
+  text-align: center; /* centra todo el contenido */
+  background-color: #fff; /* fondo blanco para contraste */
+}
+
+.sobre-mi h2 {
+  font-size: 2em; /* Tamaño H2 consistente */
+  color: #000; /* Negro para mantener sobriedad */
+  margin-bottom: 0.8em; /* Espacio bajo el título */
+}
+
+.sobre-mi p {
+  font-size: 1.1em; /* Tamaño de párrafo unificado */
+  color: #333; /* Gris oscuro para suavizar */
+  max-width: 40em; /* Máximo ancho para legibilidad */
+  margin: 0 auto 2em; /* Centrado y separación del botón */
+  line-height: 1.6; /* Buena legibilidad */
+}
+
+.sobre-mi .btn-cta-sobre-mi {
+  display: inline-block;
+  padding: 0.8em 1.8em; /* Botón cómodo */
+  background-color: #f1e4db; /* Color de acento */
+  color: #000; /* Texto negro para contraste */
+  text-decoration: none; /* Sin subrayado */
+  border-radius: 100px; /* Bordes redondeados */
+  font-weight: 600;
+  transition: background 0.3s ease, color 0.3s ease; /* Animación suave */
+}
+
+.sobre-mi .btn-cta-sobre-mi:hover {
+  background-color: #dfc5b0; /* Hover del color nude */
+  color: #000; /* Mantiene contraste */
+}
+
+/* BLOQUE SKILLS  */
+.skills-section {
+  text-align: center;
+  padding: 4em 2em;
+  background: #fff; /* Fondo limpio */
+}
+
+.skills-section h2 {
+  font-size: 2em; /* MISMO tamaño que otros H2 */
+  color: #000;
+  margin-bottom: 1em;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile: 1 columna */
+  gap: 2em;
+  justify-items: center;
+  max-width: 50em;
+  margin: 0 auto 2em auto; /* Centrado + espacio abajo */
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.skill-item img {
+  width: 4em; /* Ícono tamaño fijo */
+  height: 4em;
+  margin-bottom: 0.5em;
+  padding-top: 1em;
+}
+
+.skill-item p {
+  font-size: 1em; /* MISMO tamaño para todos los P */
+  font-weight: 600;
+  color: #000;
+}
+
+/* Animación sutil al pasar */
+.skill-item:hover {
+  transform: translateY(-0.5em);
+}
+
+/* BOTÓN para ver Skills */
+.btn-skills {
+  display: inline-block;
+  background: #f1e4db; /* Color de acento */
+  color: #000;
+  padding: 0.8em 2em;
+  border-radius: 3em;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn-skills:hover {
+  background: #e5d2c2; /* Hover más oscuro */
+}
+
+
+/* BLOQUE PROYECTOS DESTACADOS */
+.proyectos-destacados {
+  text-align: center;
+  padding: 4em 2em;
+}
+
+.proyectos-destacados h2 {
+  font-size: 2em; /* Misma línea que otros H2 */
+  margin-bottom: 0.8em;
+  color: #000;
+}
+
+.proyectos-grid {
+  display: grid;
+  gap: 2em;
+  /* Modo Mobile: 1 columna */
+}
+
+.proyecto-card {
+  border: 1px solid #f1e4db; /* Borde con color de acento */
+  padding: 2em;
+  border-radius: 0.8em;
+  transition: all 0.3s ease;
+}
+
+.proyecto-card h3 {
+  font-size: 1.3em;
+  margin-bottom: 0.5em;
+}
+
+.proyecto-card p {
+  font-size: 1em;
+  color: #000000;
+}
+
+/* Hover sutil */
+.proyecto-card:hover {
+  background-color: #f1e4db; /* Color de acento */
+  cursor: pointer;
+}
+
+/* Botón debajo */
+.proyectos-destacados .btn {
+  margin-top: 3em;
+  background: #f1e4db; /* Color de acento */
+  color: #000;
+  padding: 0.8em 2em;
+  border-radius: 3em;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.proyectos-destacados .btn:hover {
+  background: #e5d2c2; /* Hover más oscuro */
+}
+
+/* CTA FINAL*/
+
+.cta-final {
+  background-color: #f1e4db;  /* Usa tu color de acento */
+  text-align: center;
+  padding: 5em 2em;           /* Espaciado generoso */
+}
+
+.cta-final h2 {
+  font-size: 2em;          /* Título grande */
+  margin-bottom: 0.5em;
+  color: #000000;             /* Color principal oscuro */
+}
+
+.cta-final p {
+  font-size: 1em;          /* Párrafo claro */
+  margin-bottom: 2em;
+  color: #000000;
+}
+
+.btn-cta {
+  background-color: #000;       /* Botón negro */
+  color: #fff;                  /* Texto blanco */
+  padding: 0.8em 2em;
+  border-radius: 50px;          /* Botón redondeado */
+  text-decoration: none;        /* Sin subrayado */
+  transition: background 0.3s ease, color 0.3s ease; /* Efecto hover */
+  animation: fadeSlide 2s ease forwards;
+}
+
+.btn-cta:hover {
+  background-color: #f1e4db;    /* Mismo color nude de fondo */
+  color: #000;                  /* Texto negro */
+  border: 1px solid #000;       /* borde negro */
+}
+
+/* =======================
+   FOOTER FINAL CON LINKS
+   ======================= */
+
+.footer {
+  background-color: #1e1e1e;   /* Fondo oscuro para contraste */
+  color: #fff;
+  text-align: center;
+  padding: 2em 1em;
+}
+
+.footer p {
+  margin: 0 0 1em 0;
+  font-size: 0.9rem;
+}
+
+/* ====== NUEVA NAV DEL FOOTER ====== */
+.footer-nav {
+  margin-bottom: 1em;
+  display: flex;
+  justify-content: center;
+  gap: 1.5em;
+  flex-wrap: wrap;             /* Para que en mobile se ajusten */
+}
+
+.footer-nav a {
+  color: #f1e4db;              /* Color nude */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+  color: #fff;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5em;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  display: inline-flex;   /* Para alinear ícono y texto */
+  align-items: center;
+  gap: 0.5em;
+}
+
+.footer-links a img {
+  width: 1.2em;           /* Tamaño chiquito */
+  height: auto;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.footer-links a img:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+/* ===========================
+   PERFIL: Intro Section
+   =========================== */
+
+.perfil-intro {
+  text-align: center;
+  padding: 6em 2em; /* Espaciado generoso */
+  background-color: #f1e4db; /* Fondo blanco */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 30em;
+}
+
+.perfil-intro h1 {
+  font-size: 2.5em; /* Título principal */
+  margin-bottom: 0.5em;
+}
+
+.perfil-intro h2 {
+  font-size: 1.2em; /* Subtítulo */
+  font-weight: normal;
+  margin-bottom: 1em;
+  color: #000000; /* Gris oscuro */
+}
+
+.perfil-intro p {
+  max-width: 600px;
+  margin: 0 auto 2em auto;
+  line-height: 1.6;
+  font-size: 1em;
+}
+
+.perfil-intro .btn {
+  display: inline-block;
+  color: #fff;                  /* Texto blanco */
+  padding: 0.8em 2em;
+  border-radius: 50px;          /* Botón redondeado */
+  text-decoration: none;        /* Sin subrayado */
+  transition: background 0.3s ease, color 0.3s ease; /* Efecto hover */
+  animation: fadeSlide 2s ease forwards;
+  background-color: #000;
+}
+
+.perfil-intro .btn:hover {
+  background-color: #f1e4db; /* Hover negro */
+  color: #000000;
+  border: 1px solid #000;
+}
+
+/* ----- BLOQUE PERFIL ESTUDIOS ----- */
+
+.perfil-estudios {
+  background: #f9f9f9; /* Fondo sutil para diferenciarlo, si querés otro tono avisá */
+  padding: 4em 2em;     /* Espaciado generoso arriba y abajo */
+  text-align: center;   /* Centra todo el contenido */
+}
+
+.perfil-estudios h2 {
+  font-size: 2em;     /* Título de bloque coherente con H2 global */
+  color: #000;
+  margin-bottom: 0.8em;
+}
+
+.perfil-estudios p {
+  max-width: 40em;      /* Limita ancho para que se lea cómodo */
+  margin: 0 auto 2em; /* Centrado y espacio con el botón */
+  font-size: 1.1em;
+  color: #333;
+}
+
+/* Botón CTA igual estilo que usás */
+.btn-perfil {
+  display: inline-block;
+  background: #f1e4db;   /* Color de acento */
+  color: #000;
+  padding: 0.8em 2em;
+  border-radius: 2em;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-perfil:hover {
+  background: #e5d2c2;   /* Hover más suave */
+  color: #000;
+}
+
+/* BLOQUE: Herramientas */
+.perfil-tools {
+  text-align: center;
+  padding: 4em 2em; /* Espaciado superior e inferior */
+}
+
+.perfil-tools h2 {
+  font-size: 2em; /* Título grande */
+  margin-bottom: 0.8em; /* Espacio con la lista */
+}
+
+.tools-list {
+  display: grid; /* Usamos grid para acomodar */
+  grid-template-columns: 1fr; /* Mobile: 1 columna */
+  gap: 1.5em; /* Espacio entre elementos */
+  max-width: 40em; /* Ancho máximo */
+  margin: 0 auto 3em; /* Centrado y espacio abajo */
+}
+
+.tools-list p {
+  padding: 1em 2em; /* Relleno */
+  border-radius: 2em; /* Bordes redondeados */
+  box-shadow: 0 0.5em 1.5em rgba(0,0,0,0.1); /* Sombra suave */
+  font-weight: 600; /* Texto semi bold */
+  transition: transform 0.3s ease; /* Transición suave */
+}
+
+.tools-list p:hover {
+  transform: translateY(-5px); /* Sube un poco al pasar el mouse */
+  background-color: #f1e4db;
+}
+
+/* PRESENTACION */
+.presentacion-intro {
+  text-align: center;
+  padding: 4em 2em; /* Espacio amplio arriba y abajo */
+  min-height: 30em; /* Ocupar mínimo toda la pantalla */
+  display: flex; 
+  flex-direction: column;
+  justify-content: center; /* Centra verticalmente */
+  background-color: #f1e4db;
+}
+
+.presentacion-intro h1 {
+  font-size: 2em; /* Título grande, universal */
+  margin-bottom: 0.8em;
+  color: #000; /* Color neutro */
+}
+
+.presentacion-intro p {
+  max-width: 40em;
+  margin: 0 auto 1.5em auto; /* Espacio entre párrafos */
+  font-size: 1.2em; /* Igual para todos los P */
+  line-height: 1.7em;
+  color: #333;
+}
+
+.btn-intro-cta {
+  display: inline-block;
+  color: #fff;                  /* Texto blanco */
+  padding: 0.8em 2em;
+  border-radius: 50px;          /* Botón redondeado */
+  text-decoration: none;        /* Sin subrayado */
+  transition: background 0.3s ease, color 0.3s ease; /* Efecto hover */
+  animation: fadeSlide 2s ease forwards;
+  background-color: #000;
+}
+
+/* Hover con color de acento */
+.btn-intro-cta:hover {
+  background: #f1e4db; /* Acento nude */
+  color: #000;
+  border: 1px solid #000;
+
+}
+
+/* --------- SECCIÓN CONTENEDOR --------- */
+.valores-trabajo {
+  text-align: center;             /* Todo centrado */
+  padding: 4em 2em;               /* Espaciado vertical y horizontal */
+}
+
+/* Título principal */
+.valores-trabajo h2 {
+  font-size: 2em;                /* Tamaño coherente con tu jerarquía */
+  margin-bottom: 0.8em;             /* Espacio debajo */
+}
+
+/* --------- GRID DE VALORES --------- */
+.valores-grid {
+  display: grid;
+  gap: 2em;                       /* Espacio entre cards */
+  grid-template-columns: 1fr;     /* Por defecto, 1 columna en mobile */
+  max-width: 900px;               /* Limita ancho en desktop */
+  margin: 0 auto;                 /* Centra grid */
+}
+
+/* Cards individuales */
+.valor-card {
+  background: #fff;               /* Fondo blanco para contraste */
+  border-radius: 0.75em;            /* Bordes suaves */
+  padding: 2em;                   /* Espacio interno */
+  box-shadow: 0 0.3em 0.9em rgba(0,0,0,0.05); /* Sombra sutil */
+  transition: transform 0.3s ease; /* Animación hover */
+}
+
+/* Animación al pasar el mouse */
+.valor-card:hover {
+  transform: translateY(-5px);
+  background-color: #f1e4db;
+}
+
+.valor-card img {
+  width: 3em;              /* Tamaño coherente */
+  height: auto;            /* Mantiene proporción */
+  display: block;          /* Se comporta como bloque */
+  margin: 0 auto 0.5em;    /* Centrado con margen inferior */
+}
+
+/* Título de cada valor */
+.valor-card h3 {
+  font-size: 1.2rem;
+  margin: 0.3em 0;
+}
+
+/* Descripción */
+.valor-card p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.motivacion {
+  text-align: center;
+  padding: 4em 2em;
+}
+
+.motivacion h2 {
+  font-size: 2em; 
+  margin-bottom: 0.8em;
+}
+
+.motivacion .frase {
+  font-size: 1.3em;  
+  color: #000;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+}
+
+.motivacion .detalle {
+  max-width: 40em;
+  margin: 0 auto 1.5em;
+  font-size: 1.1em;
+  line-height: 1.6em;
+  color: #444;
+}
+
+/* --- Bloque CTA Final --- */
+.cta-final-pres {
+  background:#f1e4db;
+  color: #000;
+  text-align: center;
+  padding: 4em 2em;
+}
+
+.cta-final-pres h2 {
+  font-size: 2em;
+  margin-bottom: 0.8em;
+}
+
+.cta-final-pres p {
+  font-size: 1em;
+  margin-bottom: 1.5em;
+  max-width: 40em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-cta-final-pres {
+  display: inline-block;
+  background: #000000;
+  color: #fff;
+  padding: 0.8em 2em;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-cta-final-pres:hover {
+  background: #f1e4db;
+  color: #000;
+  border: 1px solid #000;
+}
+
+/* ESTUDIOS */
+.estudios-intro {
+  display: flex;           /* Usamos flexbox para centrar */
+  flex-direction: column;  /* Organiza el título y párrafo verticalmente */
+  justify-content: center; /* Centra verticalmente */
+  align-items: center;     /* Centra horizontalmente */
+  text-align: center;
+  padding: 0 2em;          /* Padding lateral para mobile */
+  min-height: 42em;       /* Ocupa toda la altura de la pantalla */
+  background: #f1e4db;
+}
+
+.estudios-intro h1 {
+  font-size: 2.5em; /* Título grande */
+  margin-bottom: 0.8em;
+  color: #000;
+}
+
+.estudios-intro p {
+  font-size: 1.2em;
+  max-width: 40em;   /* Máximo ancho del párrafo para que no quede muy largo */
+  margin: 0 auto;    /* Centrado horizontal */
+  line-height: 1.6em;
+  color: #333;
+  margin-bottom: 0.8em;
+}
+
+.estudios-bloque {
+  max-width: 40em;
+  margin: 4em auto;
+  padding: 0 2em;
+}
+
+.estudios-bloque h2 {
+  font-size: 2em;
+  color: #000;
+  margin-bottom: 0.8em;
+  text-align: center;
+}
+
+.bloque-contenido {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+}
+
+.logo-institucion {
+  width: 70px;
+  height: auto;
+  transition: transform 0.3s ease;   /* Para efecto hover suave */
+}
+
+.logo-institucion:hover {
+  transform: scale(1.05);  /* Aumenta un poquito al pasar mouse */
+}
+
+.bloque-contenido p {
+  font-size: 1.1em;
+  color: #333;
+  line-height: 1.6em;
+}
+
+
+.materias-aprobadas {
+  padding: 4em 2em;
+  text-align: center;
+  background: #f9f9f9;
+}
+
+.materias-aprobadas h2 {
+  font-size: 2em;
+  color: #000;
+  margin-bottom: 0.5em;
+}
+
+.materias-aprobadas p {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 2em;
+}
+
+.materias-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em;
+}
+
+.materia-card {
+  background: #f1e4db; /* Color de acento suave */
+  color: #000;
+  padding: 1em 2em;
+  border-radius: 1.5em;
+  font-weight: 500;
+  box-shadow: 0 0.3em 0.8em rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.materia-card:hover {
+  transform: translateY(-4px);
+}
+
+.btn-estudios-cta {
+  display: inline-block;
+  color: #fff;                  /* Texto blanco */
+  padding: 0.8em 2em;
+  border-radius: 50px;          /* Botón redondeado */
+  text-decoration: none;        /* Sin subrayado */
+  transition: background 0.3s ease, color 0.3s ease; /* Efecto hover */
+  animation: fadeSlide 2s ease forwards;
+  background-color: #000;
+}
+
+/* Hover con color de acento */
+.btn-estudios-cta:hover {
+  background: #f1e4db; /* Acento nude */
+  color: #000;
+  border: 1px solid #000;
+
+}
+
+/* SKILLS */
+.skills-intro {
+  text-align: center;          /* Centra texto */
+  padding: 4em 2em;            /* Aire interior */
+  height: 41em;               /* Ocupa 100% alto de pantalla */
+  display: flex;               /* Flex para centrar vertical */
+  flex-direction: column;      /* Columna para texto */
+  justify-content: center;     /* Centra vertical */
+  align-items: center;         /* Centra horizontal */
+  box-sizing: border-box;      /* Incluye padding en height */
+  background-color: #f1e4db;
+}
+
+.skills-intro h1 {
+  font-size: 2.5em;    /* Tamaño grande consistente */
+  color: #000;         /* Negro sobrio */
+  margin-bottom: 0.8em;
+}
+
+.skills-intro p {
+  font-size: 1.1em;    /* Igual a otros párrafos */
+  color: #333;         /* Gris oscuro suave */
+  max-width: 40em;     /* Limita ancho en desktop */
+  margin: 0 auto;      /* Centra horizontal */
+  line-height: 1.6em;  /* Espaciado cómodo */
+  margin-bottom: 0.8em;
+}
+
+/* =========== BLOQUE GRID DE SKILLS =========== */
+.skills-grid-section-pag {
+  text-align: center;
+  padding: 4em 2em;
+}
+
+.skills-grid-section-pag h2 {
+  font-size: 2em;
+  margin-bottom: 1.5em;
+}
+
+.skills-grid-pag {
+  display: grid;
+  grid-template-columns: 1fr;   /* Mobile: 1 columna */
+  gap: 2em;
+  justify-items: center;
+  max-width: 50em;
+  margin: 0 auto;
+}
+
+.skill-item-pag {
+  background: #fff;
+  border-radius: 1em;
+  padding: 2em;
+  width: 10em;
+  height: 5em;
+  box-shadow: 0 0.5em 1.5em rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.skill-item-pag:hover {
+  background: #f1e4db; /* Tu color de acento */
+  transform: translateY(-5px);
+}
+
+.skill-item-pag img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.5em;
+}
+
+.skill-item-pag p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.btn-skills-cta {
+  display: inline-block;
+  margin-top: 2em;
+  background: #000;
+  color: #fff;
+  padding: 0.8em 2em;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn-skills-cta:hover {
+  background: #e5d2c2; /* Hover color */
+  color: #000;
+}
+
+/*PROYECTOS */
+.proyectos-intro {
+  min-height: 37em; /* Ocupa toda la pantalla */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4em 2em;
+  background: #f1e4db;
+}
+
+.proyectos-intro h1 {
+  font-size: 2.5em; /* Usa siempre mismo tamaño para H1 */
+  margin-bottom: 0.8em;
+}
+
+.proyectos-intro p {
+  font-size: 1.2em; /* Igual a otros P */
+  max-width: 40em;
+  line-height: 1.6em;
+  color: #333;
+  margin: 0;
+  margin-bottom: 1.5em;
+}
+
+/* === GRID === */
+.proyectos-grid-pag {
+  display: grid;
+  gap: 2em;
+  max-width: 60em;
+  margin: 4em auto;
+  padding: 0 2em;
+}
+
+
+.proyecto-card-pag {
+  background: #f9f9f9;
+  border: 1px solid #f1e4db;
+  padding: 2em;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.proyecto-card-pag:hover {
+  transform: translateY(-5px);
+}
+
+.proyecto-card-pag h2 {
+  font-size: 1.5em;
+  margin-bottom: 0.2em;
+}
+
+.proyecto-card-pag h3 {
+  font-size: 1.1em;
+  font-weight: normal;
+  margin-bottom: 0.5em;
+  color: #555;
+}
+
+.proyecto-card-pag .periodo {
+  font-size: 0.9em;
+  color: #999;
+  margin-bottom: 0.5em;
+}
+
+.proyecto-card-pag ul {
+  padding-left: 1.2em;
+}
+
+.proyecto-card-pag li {
+  margin-bottom: 0.5em;
+  line-height: 1.6em;
+  color: #333;
+}
+
+/* --- INFO DE CONTACTO (bloques estilizados) --- */
+.contacto-seccion {
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+  max-width: 1200px;
+  margin: 4em auto;
+  padding: 0 2em;
+}
+
+
+/* --- FORMULARIO --- */
+.contacto-formulario {
+  flex: 1;
+  background: #f9f9f9;
+  padding: 2em;
+  border-radius: 0.8em;
+}
+
+.contacto-formulario h2 {
+  margin-bottom: 1em;
+  font-size: 2em;
+}
+
+#form-contacto {
+  display: flex;
+  flex-direction: column;
+}
+
+#form-contacto label {
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+#form-contacto input,
+#form-contacto textarea {
+  padding: 0.8em;
+  margin-top: 0.3em;
+  border: 1px solid #ddd;
+  border-radius: 0.4em;
+  font-family: inherit;
+}
+
+#form-contacto textarea {
+  min-height: 150px;
+}
+
+#form-contacto button {
+  margin-top: 2em;
+  background: #f1e4db;
+  color: #000;
+  border: none;
+  padding: 0.8em 2em;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#form-contacto button:hover {
+  background: #e5d2c2; /* Acento hover */
+  color: #000;
+}
+
+/* --- INFO DE CONTACTO --- */
+.contacto-info-bloque {
+  flex: 1;
+}
+
+.contacto-info-bloque h2 {
+  margin-bottom: 1em;
+  font-size: 2em;
+}
+
+.info-item {
+  background: #f9f9f9;
+  border-left: 4px solid #e5d2c2;
+  padding: 1.5em;
+  margin-bottom: 1.5em;
+  border-radius: 0.5em;
+}
+
+.info-item h3 {
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+.info-item a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.info-item a:hover {
+  color: #e5d2c2;
+}
+
+/* --- MODAL DE ÉXITO --- */
+.modal-exito {
+  display: none;               /* Oculto por defecto */
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-contenido {
+  background: #fff;
+  padding: 2em 3em;
+  border-radius: 0.8em;
+  text-align: center;
+  max-width: 400px;
+}
+
+.modal-contenido p {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}
+
+.modal-contenido button {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 0.7em 1.5em;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.modal-contenido button:hover {
+  background: #e5d2c2; /* Color acento nude */
+  color: #000;
+}
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 48em) {
+    .logo {
+    display: block;
+    align-self: unset;
+    color: #000; /* Asegura que se vea blanco en fondo negro */
+  }
+
+  /* Enlaces del nav visibles, en fila  */
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end; /* Alineados a la derecha */
+    align-items: center;
+    background-color: transparent; /* Fondo transparente en Desktop */
+    width: auto;
+    gap: 2em; /* Espaciado entre links */
+  }
+
+  /*  Espaciado de los enlaces */
+  .nav-links a {
+    padding: 0.5em 0; /* Padding vertical uniforme */
+    color: #000; /* Asegura blanco */
+    position: relative; /* Necesario para ::after underline */
+  }
+
+  /*  Ocultar hamburguesa  */
+  .hamburger {
+    display: none;
+  }
+
+  /* Ajuste dropdown Desktop*/
+  .dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff; /* Sutil negro más claro */
+    z-index: 1;
+    min-width: 10em; /* Ancho mínimo */
+    border-radius: 0.3em; /* Opcional: bordes redondeados */
+    overflow: hidden; /* Por si hay overflow */
+  }
+
+  .dropdown-content a {
+    background-color: #111;
+    color: #fff;
+    padding: 0.8em 1em;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #222; /* Hover sutil */
+  }
+
+  /*  Ajuste de cada LI contenedor  */
+  .nav-links li {
+    position: relative;
+  }
+
+  /* INICIO*/  
+  .hero {
+  min-height: 41em; /* Ocupa toda la altura de la pantalla */
+    }
+
+ .skills-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas en compu */
+  }
+
+  .proyectos-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas en Desktop */
+    max-width: 70em;
+    margin: 0 auto;
+  }
+/* PERFIL*/  
+  .perfil-intro {
+  min-height: 33em;
+}
+
+.tools-list {
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+  }
+
+  /* PRESENTACION*/  
+.presentacion-intro {
+  min-height: 37em; /* Ocupar mínimo toda la pantalla */
+}
+
+.btn-intro-cta {
+  display: flex;
+  justify-content: center;
+  max-width: 10em;
+  margin-left: 35em ;
+}
+
+.valores-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas en desktop */
+  }
+
+  /*ESTUDIOS*/  
+.estudios-intro {
+  min-height: 45em;       /* Ocupa toda la altura de la pantalla */
+}
+
+.materias-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* SKILLS */
+.skills-intro {
+  height: 45em;               /* Ocupa 100% alto de pantalla */
+}
+
+.skills-grid-pag {
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas desktop */
+    margin-left: 11em;
+  }
+
+.contacto-seccion {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  
+
+
+  
+}
